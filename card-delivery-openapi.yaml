@@ -1,3 +1,5 @@
+# Можно использовать https://editor-next.swagger.io/
+
 openapi: 3.1.0
 info:
   title: Card Delivery
