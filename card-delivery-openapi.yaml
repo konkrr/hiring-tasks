@@ -26,7 +26,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Order'
         '205':
-          description: Error operation (Invalid input)
+          description: Error operation
 
   
   /getOrderStatusById/{id}:
@@ -37,12 +37,11 @@ paths:
       parameters:
         - name: status
           in: query
-          description: Status values that need to be considered for filter
+          description: Filter by order status values
           schema:
             type: string
             enum:
               - in_progress
-              - canceled
               - rejected
               - completed
       requestBody:
@@ -52,7 +51,7 @@ paths:
               $ref: '#/components/schemas/Order'
       responses:
         '200':
-          description: successful operation
+          description: Successful operation
         '400':
           description: Invalid status value
 
@@ -64,8 +63,7 @@ components:
       properties:
         orderId:
           type: integer
-          format: int64
-          examples: [198772]
+          examples: [1111, 2222]
         userInfo:
           type: array
           items:
