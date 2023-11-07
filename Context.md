@@ -39,12 +39,11 @@
    3. *cards__table*
    4. *deliveries_table*
 
-4. Создать запрос SQL: который выведет список пользователей из таблицы users, которые имеют карту с типом 'credit'. Список отсортировать по дате регистрации (представим≤ что БД денормализована)
+4. Создать запрос SQL: подсчитать кол-во пользователей из таблицы users, которые имеют карту с типом 'credit' (представим≤ что БД денормализована)
 
 ```sql
-select distinct user_id from users
+select count(distinct user_id) from users
 where card_type = 'credit'
-order by created_at desc
 ```
 
 5. *В чем смысл теорем ACID, CAP?*
