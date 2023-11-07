@@ -12,7 +12,6 @@ paths:
     post:
       summary: Add a new order
       description: Add a new order
-      operationId: createOrder
       requestBody:
         content:
           application/json:
@@ -33,7 +32,6 @@ paths:
     get:
       summary: Request to get order status
       description: Request to get order status
-      operationId: getOrderStatusById
       parameters:
         - name: status
           in: query
