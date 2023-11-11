@@ -5,7 +5,7 @@ info:
   title: Card Delivery
   version: 1.0.0
 servers:
-  - url: https://card.swagger.io/api/v3
+  - url:
 
 paths:
   /createOrder:
@@ -28,7 +28,7 @@ paths:
           description: Error operation
 
   
-  /getOrderStatusById/{id}:
+  /getOrderById/{id}:
     get:
       summary: Request to get order status
       description: Request to get order status
