@@ -136,13 +136,11 @@
 
 #### **Задачи**
 
-<blockquote style="background-color: #e6f7ff;">
-  <strong>Задача 1:</strong> Менеджер просит: подсчитать кол-во уникальных пользователей из таблицы users, которые имеют карту card_type с типом 'credit' (представим, что БД денормализована)
-    <blockquote>
-      select count(distinct user_id) from users
-      where card_type = 'credit'
-    </blockquote>
-</blockquote>
+>**Задача 1:** Менеджер просит: подсчитать кол-во уникальных пользователей из таблицы users, которые имеют карту card_type с типом 'credit' (представим, что БД денормализована)
+>'''sql
+>select count(distinct user_id) from users
+>where card_type = 'credit'
+>'''
 
 
 #### **Опционально доп вопросы (middle+/senior)** 
