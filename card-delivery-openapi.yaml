@@ -34,7 +34,7 @@ paths:
       description: Request to get order status
       parameters:
         - name: status
-          in: query
+          in: path
           description: Filter by order status values
           schema:
             type: string
