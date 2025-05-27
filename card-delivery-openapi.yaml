@@ -1,52 +1,40 @@
-# Можно использовать https://editor-next.swagger.io/
-
 openapi: 3.1.0
 info:
-  title: Card Delivery
+  title: Rick and Morty Navigator
   version: 1.0.0
 servers:
-  - url:
+  - url: localhost
 
 paths:
-  /createOrder:
+  /CreateAdventure:
     post:
-      summary: Add a new order
-      description: Add a new order
+      summary: Add new adventure
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/CreateAdventure'
       responses:
         '200':
           description: Successful operation
-          content:
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Order'
-        '205':
-          description: Error operation
+        '306':
+          description: Adventure is not found
 
   
-  /getOrderById/{id}:
+  /whereAreRickAndMorty?/{id}:
     get:
-      summary: Request to get order status
-      description: Request to get order status
+      summary: Get current location
       parameters:
         - name: status
           in: path
-          description: Filter by order status values
+          description: Filter by adventure status
           schema:
             type: string
-            enum:
-              - in_progress
-              - rejected
-              - completed
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/GetAdventure'
       responses:
         '200':
           description: Successful operation
@@ -54,30 +42,46 @@ paths:
           description: Invalid status value
 
 
+
 components:
   schemas:
-    Order:
+    CreateAdventure:
       type: object
       properties:
-        orderId:
-          type: integer
-          examples: [1111, 2222]
-        userInfo:
-          type: array
-          items:
-        cardInfo:
-          type: array
-          items:
-        shipmentInfo:
-          type: array
-          items:
-
-
-  securitySchemes:
-    BasicAuth:
-      type: http
-      login: 
-      password:
-    BearerAuth:
-      type: http
-      scheme: bearer
+        destination:
+          type: string
+          examples: [Галактика NGX 1330]
+        destinatioLocation:
+          type: object
+          properties:
+            lng:
+              type: string
+              examples: ["0.00"]
+            lat:
+              type: string
+              examples: ["0.00"]
+    
+    
+    
+    
+    GetAdventure:
+      type: object
+      properties:
+        id:
+          type: string
+          examples: [a09e59b9-5dac-41e2-a0dc-362c94da5c94]
+        destination:
+          type: string
+          examples: [Галактика NGX 1330]
+        status:
+          type: string
+          examples: [В пути]
+        currentLocation:
+          type: object
+          properties:
+            lng:
+              type: string
+              examples: ["0.00"]
+            lat:
+              type: string
+              examples: ["0.00"]
