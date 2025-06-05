@@ -1,0 +1,64 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Rick and Morty Navigator",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "localhost"
+    }
+  ],
+  "paths": {
+    "/whereAreRickAndMorty": {
+      "get": {
+        "summary": "Get current location",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAdventure"
+              }
+            }
+          }
+        },
+        "responses": {
+          "300": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetAdventure": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "a09e59b9-5dac-41e2-a0dc-362c94da5c94"
+          },
+          "destination": {
+            "type": "string",
+            "example": "Галактика NGX 1330"
+          },
+          "status": {
+            "type": "string",
+            "example": "В пути"
+          }
+        }
+      }
+    }
+  }
+}
